@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
   Future loadModel() async {
     Tflite.close();
     await Tflite.loadModel(
-        model: "assets/ssd_mobilenet.tflite",
+        model: ".././assets/ssd_mobilenet.tflite",
         labels: "assets/ssd_mobilenet.txt");
   }
 
