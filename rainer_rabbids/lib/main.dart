@@ -1,6 +1,9 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter/services.dart';
+=======
+>>>>>>> a3c01a233877237e3f871656cfb2a7bba7c362c0
 import 'package:tflite/tflite.dart';
 
 void main() async {
@@ -32,11 +35,15 @@ class _HomePageState extends State<HomePage> {
   late List recognitionsList;
 
   initCamera() {
+<<<<<<< HEAD
     cameraController = CameraController(
       cameras[1],
       ResolutionPreset.medium,
       imageFormatGroup: ImageFormatGroup.yuv420,
     );
+=======
+    cameraController = CameraController(cameras[0], ResolutionPreset.medium);
+>>>>>>> a3c01a233877237e3f871656cfb2a7bba7c362c0
     cameraController.initialize().then((value) {
       setState(() {
         cameraController.startImageStream((image) => {
@@ -67,6 +74,7 @@ class _HomePageState extends State<HomePage> {
 
   Future loadModel() async {
     Tflite.close();
+<<<<<<< HEAD
     try {
       await Tflite.loadModel(
           model: "assets/ssd_mobilenet.tflite",
@@ -74,6 +82,11 @@ class _HomePageState extends State<HomePage> {
     } on PlatformException {
       print("SOMETHING wrong");
     }
+=======
+    await Tflite.loadModel(
+        model: "assets/ssd_mobilenet.tflite",
+        labels: "assets/ssd_mobilenet.txt");
+>>>>>>> a3c01a233877237e3f871656cfb2a7bba7c362c0
   }
 
   @override
